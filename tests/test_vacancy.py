@@ -13,7 +13,7 @@ class TestVacancy:
             salary_to=150000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy.title == "Python Developer"
@@ -33,7 +33,7 @@ class TestVacancy:
             salary_to=None,
             currency=None,
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy.salary_from is None
@@ -49,7 +49,7 @@ class TestVacancy:
             salary_to=150000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy.salary == "100000-150000 RUR"
@@ -63,7 +63,7 @@ class TestVacancy:
             salary_to=None,
             currency=None,
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy.salary in ["Зарплата не указана", "None руб."]
@@ -77,7 +77,7 @@ class TestVacancy:
             salary_to=100000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy.salary == "100000 RUR"
@@ -91,7 +91,7 @@ class TestVacancy:
             salary_to=80000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 1+ год"
+            requirements="Опыт работы 1+ год",
         )
 
         vacancy_high = Vacancy(
@@ -101,7 +101,7 @@ class TestVacancy:
             salary_to=200000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 5+ лет"
+            requirements="Опыт работы 5+ лет",
         )
 
         # Проверяем сравнение
@@ -118,7 +118,7 @@ class TestVacancy:
             salary_to=150000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         vacancy2 = Vacancy(
@@ -128,7 +128,7 @@ class TestVacancy:
             salary_to=160000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy1 == vacancy2  # Сравниваются только salary_from
@@ -142,7 +142,7 @@ class TestVacancy:
             salary_to=150000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         vacancy_dict = vacancy.to_dict()
@@ -164,7 +164,7 @@ class TestVacancy:
             salary_to=150000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         str_repr = str(vacancy)
@@ -185,7 +185,7 @@ class TestVacancy:
             salary_to=150000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy.url.startswith("https://")
@@ -199,7 +199,7 @@ class TestVacancy:
             salary_to=150000,
             currency="RUR",
             description="Разработка на Python",
-            requirements="Опыт работы 3+ года"
+            requirements="Опыт работы 3+ года",
         )
 
         assert vacancy.salary_from == 0  # Должна быть исправлена на 0

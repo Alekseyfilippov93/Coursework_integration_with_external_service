@@ -9,7 +9,7 @@ class TestHeadHunterAPI:
     def setup_method(self):
         self.api = HeadHunterAPI()
 
-    @patch('src.api.requests.get')
+    @patch("src.api.requests.get")
     def test_get_vacancy_basic(self, mock_get):
         """Тест для получения вакансий"""
         mock_response = Mock()
@@ -20,7 +20,7 @@ class TestHeadHunterAPI:
                     "alternate_url": "https://hh.ru/vacancy/123",
                     "salary": {"from": 100000, "to": 150000, "currency": "RUR"},
                     "description": "Test description",
-                    "snippet": {"requirement": "Test requirements"}
+                    "snippet": {"requirement": "Test requirements"},
                 }
             ]
         }
@@ -32,7 +32,7 @@ class TestHeadHunterAPI:
         assert len(vacancies) == 1
         assert vacancies[0]["name"] == "Python Developer"
 
-    @patch('src.api.requests.get')
+    @patch("src.api.requests.get")
     def test_get_vacancy_empty(self, mock_get):
         """Тест пустого ответа"""
         mock_response = Mock()
@@ -44,7 +44,7 @@ class TestHeadHunterAPI:
 
         assert len(vacancies) == 0
 
-    @patch('src.api.requests.get')
+    @patch("src.api.requests.get")
     def test_get_vacancy_error(self, mock_get):
         """Тест ошибки запроса"""
         mock_get.side_effect = Exception("Error")
@@ -52,6 +52,7 @@ class TestHeadHunterAPI:
         vacancies = self.api.get_vacancy("Python")
 
         assert len(vacancies) == 0
+
 
 def test_hh_api():
     url = "https://api.hh.ru/vacancies"

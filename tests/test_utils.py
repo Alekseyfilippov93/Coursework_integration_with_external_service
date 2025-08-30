@@ -2,7 +2,7 @@ from src.utils import (
     filter_vacancies,
     get_vacancies_by_salary,
     sort_vacancies,
-    get_top_vacancies
+    get_top_vacancies,
 )
 from src.vacancy import Vacancy
 
@@ -20,7 +20,7 @@ class TestUtils:
                 salary_to=150000,
                 currency="RUR",
                 description="Разработка на Python",
-                requirements="Опыт работы с Python"
+                requirements="Опыт работы с Python",
             ),
             Vacancy(
                 title="Java Developer",
@@ -29,8 +29,8 @@ class TestUtils:
                 salary_to=120000,
                 currency="RUR",
                 description="Разработка на Java",
-                requirements="Опыт работы с Java"
-            )
+                requirements="Опыт работы с Java",
+            ),
         ]
 
     def test_filter_vacancies_with_keywords(self):
@@ -53,8 +53,11 @@ class TestUtils:
 
         # Проверяем что все отфильтрованные вакансии удовлетворяют условиям
         for vacancy in filtered:
-            assert (vacancy.salary_from >= 90000 or vacancy.salary_to <= 120000 or
-                    (vacancy.salary_from <= 90000 and vacancy.salary_to >= 120000))
+            assert (
+                vacancy.salary_from >= 90000
+                or vacancy.salary_to <= 120000
+                or (vacancy.salary_from <= 90000 and vacancy.salary_to >= 120000)
+            )
 
     def test_sort_vacancies(self):
         """Тест сортировки вакансий"""

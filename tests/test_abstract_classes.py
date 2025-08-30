@@ -17,11 +17,11 @@ class TestAbstractClasses:
 
     def test_abstract_api_has_get_vacancy_method(self):
         """Тест, что AbstractAPI имеет метод get_vacancy"""
-        assert hasattr(AbstractAPI, 'get_vacancy')
+        assert hasattr(AbstractAPI, "get_vacancy")
 
     def test_abstract_saver_has_required_methods(self):
         """Тест, что AbstractSaver имеет все обязательные методы"""
-        required_methods = ['add_vacancy', 'get_vacancies', 'delete_vacancy']
+        required_methods = ["add_vacancy", "get_vacancies", "delete_vacancy"]
         for method in required_methods:
             assert hasattr(AbstractSaver, method)
 
