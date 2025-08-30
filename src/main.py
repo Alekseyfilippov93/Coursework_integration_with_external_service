@@ -120,4 +120,3 @@ def main():
         if repeat != "да":
             print("До свидания!")
             break
-
