@@ -120,7 +120,3 @@ def main():
         if repeat != "да":
             print("До свидания!")
             break
-
-
-if __name__ == "__main__": # Запуск программы пользователем
-    main()
