@@ -41,13 +41,3 @@ class HeadHunterAPI(AbstractAPI):
         """Публичный метод для получения вакансий."""
         vacancy_1 = self._get_data(search_query)
         return vacancy_1
-
-    # Пример использования (можно удалить после тестирования)
-
-
-if __name__ == "__main__":
-    hh_api = HeadHunterAPI()
-    vacancy = hh_api.get_vacancy("Специалист по повышению финансовой грамотности")
-    print(f"Найдено вакансий: {len(vacancy)}")
-    if vacancy:
-        print(f"Первая вакансия: {vacancy[0]['name']}")
