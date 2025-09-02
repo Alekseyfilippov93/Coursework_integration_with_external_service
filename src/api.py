@@ -10,16 +10,16 @@ class HeadHunterAPI(AbstractAPI):
 
     def __init__(self):
         """Инициализируем класс для работы с API"""
-        self._headers = {"User-Agent": "HH-User-Agent"}
-        self._params = {"text": "", "page": 0, "per_page": 100}
+        self.__headers = {"User-Agent": "HH-User-Agent"}
+        self.__params = {"text": "", "page": 0, "per_page": 100}
 
     def _get_data(self, search_query: str) -> List[Dict]:
         """Приватный метод для получения данных от API."""
-        self._params["text"] = search_query
-        self._params["page"] = 0
+        self.__params["text"] = search_query
+        self.__params["page"] = 0
         try:
             response = requests.get(
-                self._URL_HH, headers=self._headers, params=self._params
+                self._URL_HH, headers=self.__headers, params=self.__params
             )
             response.raise_for_status()  # Проверяем статус код
 

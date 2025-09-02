@@ -12,28 +12,29 @@ class JSONSaver(AbstractSaver):
 
     def __init__(self, filename: str = "vacancies.json"):
         """Инициализация JSON-файла куда будет записываться."""
-        self._filename = filename
-        self._ensure_data_directory()
+        self.__filename = filename
+        self.__ensure_data_directory()
 
-    def _ensure_data_directory(self) -> None:
+    def __ensure_data_directory(self) -> None:
         """Создаем папку data, если она не создана еще"""
-        Path("data").mkdir(exist_ok=True)
-        self._filepath = Path("data") / self._filename
+        data_path = Path(__file__).parent.parent / "data"
+        data_path.mkdir(exist_ok=True)
+        self.__filepath = data_path / self.__filename
 
     def _read_vacancies(self) -> List[Dict]:
         """Прочитать вакансии из JSON-файла."""
-        if not self._filepath.exists():
+        if not self.__filepath.exists():
             return []
 
         try:
-            with open(self._filepath, "r", encoding="utf-8") as file:
+            with open(self.__filepath, "r", encoding="utf-8") as file:
                 return json.load(file)
         except (json.JSONDecodeError, FileNotFoundError):
             return []
 
     def _write_vacancies(self, vacancies: List[Dict]) -> None:
         """Записать вакансии в JSON-файл."""
-        with open(self._filepath, "w", encoding="utf-8") as file:
+        with open(self.__filepath, "w", encoding="utf-8") as file:
             json.dump(vacancies, file, ensure_ascii=False, indent=2)
 
     def add_vacancy(self, vacancy: Vacancy) -> None:
